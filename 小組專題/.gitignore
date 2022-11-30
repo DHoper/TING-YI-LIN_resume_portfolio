@@ -1,0 +1,21 @@
+.DS_Store
+settings.json
+
+assets/plugins/fullPage.js-master/examples/
+assets/plugins/fullPage.js-master/gulp
+assets/plugins/fullPage.js-master/lang
+assets/plugins/fullPage.js-master/src
+assets/plugins/fullPage.js-master/tests
+assets/plugins/fullPage.js-master/vendors
+assets/plugins/fullPage.js-master/. jshintrc
+assets/plugins/fullPage.js-master/.gitattributes
+assets/plugins/fullPage.js-master/.gitignore
+assets/plugins/fullPage.js-master/BACKERS.md
+assets/plugins/fullPage.js-master/bower.json
+assets/plugins/fullPage.js-master/gulpfile.js
+assets/plugins/fullPage.js-master/LICENSE
+assets/plugins/fullPage.js-master/package.json
+assets/plugins/fullPage.js-master/README.md
+assets/plugins/fullPage.js-master/rollup.config.js
+assets/plugins/fullPage.js-master/SECURITY.md
+

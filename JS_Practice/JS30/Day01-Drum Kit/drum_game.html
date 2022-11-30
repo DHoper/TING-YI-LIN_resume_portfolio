@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>drum_game</title>
+  <style>
+    .main {
+      width: 70vw;
+      height: 90vh;
+      margin: auto;
+      margin-top: 3vh;
+      border: dashed 4px;
+      position: relative;
+      background-color: black;
+      overflow: hidden;
+    }
+
+    .keybox {
+      position: absolute;
+      top: 0;
+      width: 90px;
+      height: 90px;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 36px;
+      transition: all 0.15s ease;
+      border-radius: 10px;
+      animation: drop 15s 0s forwards;
+      border: solid 1px;
+    }
+
+    @keyframes drop {
+      from {}
+
+      to {
+        top: 110%;
+      }
+    }
+
+    .playing {
+      transform: scale(1.1);
+      border-color: solid 2px #0aead0;
+      box-shadow: 0 0 1.5rem 0.5rem #0aead0;
+    }
+  </style>
+  <link rel="shortcut icon" href="#" />
+</head>
+
+<body>
+  <script src="https://unpkg.com/vue@3"></script>
+
+  <div class="main">
+    <div class="keybox"></div>
+    <div class="keybox"></div>
+    <div class="keybox"></div>
+    <div class="keybox"></div>
+    <div class="keybox"></div>
+    <div class="keybox"></div>
+    <div class="keybox"></div>
+    <div class="keybox"></div>
+    <div class="keybox"></div>
+  </div>
+
+  <audio data-key="1" src="./sounds/clap.wav"></audio>
+  <audio data-key="2" src="./sounds/hihat.wav"></audio>
+  <audio data-key="3" src="./sounds/kick.wav"></audio>
+  <audio data-key="4" src="./sounds/openhat.wav"></audio>
+  <audio data-key="5" src="./sounds/boom.wav"></audio>
+  <audio data-key="6" src="./sounds/ride.wav"></audio>
+  <audio data-key="7" src="./sounds/snare.wav"></audio>
+  <audio data-key="8" src="./sounds/tom.wav"></audio>
+  <audio data-key="9" src="./sounds/tink.wav"></audio>
+
+  <script>
+    let k1 = "A";
+    let k2 = "S";
+    let k3 = "D";
+    let k4 = "F";
+    let k5 = "G";
+    let k6 = "H";
+    let k7 = "J";
+    let k8 = "K";
+    let k9 = "L";
+    const keyArray = [k1, k2, k3, k4, k5, k6, k7, k8, k9];
+    let main = document.querySelector(".main");
+
+    //   function removeTransition(e) {
+    //     if (e.propertyName !== "transform") return;
+    //     e.target.classList.remove("playing");
+    //   }
+
+    let kDivList = document.querySelectorAll(".keybox");
+
+    for (i = 0; i < kDivList.length; i++) {
+      kDivList[i].innerHTML = `${keyArray[i]}`;
+      kDivList[i].style.left = `${(i) * 11.15}%`;
+    }
+    
+
+
+    //   function removeIDiv(index) {
+    //     setTimeout(() => {
+    //         kDivList[index].remove();
+    //       }, 15000);
+    //   };
+    //       removeIDiv(0);
+    //       removeIDiv(1);
+    //       removeIDiv(2);
+    //       removeIDiv(3);
+    //       removeIDiv(4);
+    //       removeIDiv(5);
+    //       removeIDiv(6);
+    //       removeIDiv(7);
+    //       removeIDiv(8);
+
+    function playGame(k) {
+      let kj = k.key.toUpperCase();
+      if (keyArray.includes(kj)) {
+        let ki = keyArray.indexOf(kj);
+        let rk = String.fromCharCode(65 + Math.ceil(Math.random() * 25));
+
+        kDivList = document.querySelectorAll(".keybox");
+        //   console.log(kDivList);
+        kDivList[ki].classList.add("playing");
+
+        setTimeout(() => {
+          kDivList[ki].remove();
+        }, 150);
+
+        let newDiv = document.createElement("div");  ///////生成元素///////
+        newDiv.classList.add("keybox");
+        let p = [0,11,22,33,44,55,66,77,88];
+        newDiv.style.left = `${p[ki]}%`;
+
+        (function set_rk() {
+          if (!keyArray.includes(rk)) {
+            console.log(keyArray[ki]);
+            keyArray[ki] = rk;
+            newDiv.innerHTML = rk;
+            setTimeout(() => {
+              main.insertBefore(newDiv, kDivList[ki]);
+              // setTimeout(() => {
+              //   newDiv.remove();
+              // }, 15000);
+            }, 100);
+          } else {
+            rk = String.fromCharCode(65 + Math.ceil(Math.random() * 25));
+            set_rk();
+          }
+          console.log(keyArray);
+          console.log(main);
+        })();
+
+        let audio = document.querySelector(`audio[data-key="${ki + 1}"]`);
+
+        audio.currentTime = 0;
+        audio.play();
+      }
+    }
+    window.addEventListener("keydown", (k) => {
+      setTimeout(() => {
+        playGame(k);
+      }, 150)
+    });
+  </script>
+</body>
+
+</html>

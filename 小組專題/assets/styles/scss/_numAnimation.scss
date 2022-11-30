@@ -1,0 +1,73 @@
+
+
+.counter {
+    $font-size: 3rem;
+    font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    font-size: $font-size;
+    line-height: $font-size;
+    font-weight: bold;
+
+    display: inline-block;
+    overflow: hidden;
+
+    .word {
+        position: relative;
+
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+
+    .char {
+        position: relative;
+        top: 0;
+        display: block;
+        width: auto;
+        color: #FFF;
+        cursor: alias;
+        font-size: $font-size;
+        line-height: $font-size;
+        opacity: 0;
+        text-align: center;
+        -webkit-text-orientation: upright;
+        text-orientation: upright;
+        transform: translate3D(0,0,0);
+        writing-mode: vertical-lr;
+        user-select: none;
+    }
+    .char::before, 
+    .char::after {
+        content: attr(data-nbefore);
+        position: absolute;
+        right: 0;
+        bottom: 100%;
+        width: auto;
+        text-orientation: inherit;
+        writing-mode: inherit;
+    }
+    .char::after {
+        content: attr(data-nafter);
+        bottom: auto;
+        top: 100%;
+    }
+}
+.fp-section.active {
+    .counter {
+        .char {
+            $duration: .35s;
+            $total: 8;
+            animation: opacity-fadein $duration both;
+            // transition: transform $duration cubic-bezier(.65,1.39,1,1.08), opacity .4s, color .3s .3s;
+            transition: transform $duration ease-in-out, opacity .4s, color .3s .3s;
+            @for $i from 1 through $total {
+                &:nth-child(#{$i}) {
+                    transition-duration: ($total - $i) * $duration, ($total - $i) * .4s, ($total - $i) * .3s;
+                }
+            }
+        }
+    }
+}
+@keyframes opacity-fadein {
+    0% { opacity: 0 }
+    100% { opacity: 1 }
+}

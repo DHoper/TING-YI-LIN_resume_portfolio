@@ -1,0 +1,116 @@
+.section {
+
+    @media (min-width: 1200px) and (min-height: 900px) {
+        &.active {
+
+            $dur: 1.5s;
+            $easing: "ease";
+            $delay: .1s;
+
+            @for $i from 1 to 20 {
+
+                // .results div:nth-child(#{$i}) { animation-delay: $i * 1ms; }
+                .ani-delay-#{$i}00 {
+                    animation-delay: $i * 0.1s !important
+                }
+            }
+
+            .fade-in-top {
+                animation: fade-in-top $dur #{$easing} $delay both;
+            }
+
+            .fade-in-bottom {
+                animation: fade-in-bottom $dur #{$easing} $delay both;
+            }
+
+            .fade-in-left {
+                animation: fade-in-left $dur #{$easing} $delay both;
+            }
+
+            .fade-in-right {
+                animation: fade-in-right $dur #{$easing} $delay both;
+            }
+
+            .slide-in-top {
+                animation: slide-in-top $dur #{$easing} $delay both;
+            }
+
+            .slide-in-bottom {
+                animation: slide-in-bottom $dur #{$easing} $delay both;
+            }
+
+            .slide-in-left {
+                animation: slide-in-left $dur #{$easing} $delay both;
+            }
+
+            .slide-in-right {
+                animation: slide-in-right $dur #{$easing} $delay both;
+            }
+
+            .rotate-in-2-fwd-cw {
+                animation: rotate-in-2-fwd-cw $dur #{$easing} $delay both;
+            }
+        }
+    }
+
+    // @media (min-width: 1200px) and (max-height: 900px) {
+
+    //     .fade-in-top,
+    //     .fade-in-bottom,
+    //     .fade-in-left,
+    //     .fade-in-right,
+    //     .slide-in-top,
+    //     .slide-in-bottom,
+    //     .slide-in-left,
+    //     .slide-in-right,
+    //     .rotate-in-2-fwd-cw {
+    //         visibility: hidden;
+    //     }
+
+    //     &.active {
+
+
+    //         .fade-in-top,
+    //         .fade-in-bottom,
+    //         .fade-in-left,
+    //         .fade-in-right,
+    //         .slide-in-top,
+    //         .slide-in-bottom,
+    //         .slide-in-left,
+    //         .slide-in-right,
+    //         .rotate-in-2-fwd-cw {
+    //             visibility: visible;
+    //         }
+    //     }
+    // }
+    // @media (max-width: 991px) {
+
+    //     .fade-in-top,
+    //     .fade-in-bottom,
+    //     .fade-in-left,
+    //     .fade-in-right,
+    //     .slide-in-top,
+    //     .slide-in-bottom,
+    //     .slide-in-left,
+    //     .slide-in-right,
+    //     .rotate-in-2-fwd-cw {
+    //         visibility: hidden;
+    //     }
+
+    //     &.active {
+
+
+    //         .fade-in-top,
+    //         .fade-in-bottom,
+    //         .fade-in-left,
+    //         .fade-in-right,
+    //         .slide-in-top,
+    //         .slide-in-bottom,
+    //         .slide-in-left,
+    //         .slide-in-right,
+    //         .rotate-in-2-fwd-cw {
+    //             visibility: visible;
+    //         }
+    //     }
+    // }
+}

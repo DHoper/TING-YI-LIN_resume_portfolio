@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/dice.css">
+</head>
+<body>
+    <div class="background">
+        <div class="con" tabindex="-1">
+            <div class="box1"><div class="face1"><div class="dot"></div></div></div>
+            <div class="box2"><div class="face2"><div class="dot"></div><div class="dot"></div></div></div>
+            <div class="box3"><div class="face3"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>
+            <div class="box4"><div class="face4">
+                <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+            </div></div>
+            <div class="box5"><div class="face5"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>
+            <div class="box6"><div class="face6"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>
+        </div>
+    </div>
+
+    <Script>
+        const con = document.querySelector('.con')
+        con.addEventListener( 'mousemove', event => {
+            console.log(event.screenX);
+        })
+   
+        document.styleSheets[0].insertRule(`@keyframes toi { 0% { left: ${2}px; top: ${3}px; } 100% { left: ${4}px; top: ${6}px } }`);
+        console.log(document.styleSheets[0])
+        ;
+    </Script>
+</body>
+</html>

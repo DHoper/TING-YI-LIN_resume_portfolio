@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            margin: auto;
+            margin-top: 5%;
+            background: #303032;
+            color: #303032;
+            width: 40vw;
+            overflow: hidden;
+            position: relative;
+            border: red dashed;
+            
+        }
+
+        .c {
+            display: none;
+            width: 150px;
+            height: 150px;
+            background-color: green;
+            border-radius: 50%;
+            filter: blur(40px);
+            position: absolute;
+        }
+
+        p {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+        <div class="container">
+            <p>
+                77777777777777777777777777777777777777777777777777777777777777777777777777
+                77777777777777777777777777777777777777777777777777777777777777777777777777
+                77777777777777777777777777777777777777777777777777777777777777777777777777
+                77777777777777777777777777777777777777777777777777777777777777777777777777
+                77777777777777777777777777777777777777777777777777777777777777777777777777
+                77777777777777777777777777777777777777777777777777777777777777777777777777
+                77777777777777777777777777777777777777777777777777777777777777777777777777
+                77777777777777777777777777777777777777777777777777777777777777777777777777
+                77777777777777777777777777777777777777777777777777777777777777777777777777
+                77777777777777777777777777777777777777777777777777777777777777777777777777
+                77777777777777777777777777777777777777777777777777777777777777777777777777
+                77777777777777777777777777777777777777777777777777777777777777777777777777
+                77777777777777777777777777777777777777777777777777777777777777777777777777
+                77777777777777777777777777777777777777777777777777777777777777777777777777
+                77777777777777777777777777777777777777777777777777777777777777777777777777
+                77777777777777777777777777777777777777777777777777777777777777777777777777
+                77777777777777777777777777777777777777777777777777777777777777777777777777
+            </p>
+            <div class="c"></div>
+        </div>
+
+    <script>
+        window.addEventListener('load', function () {
+            let container = document.querySelector('.container');
+            let c = document.querySelector('.c');
+
+            container.addEventListener('mouseover', () => {
+
+                c.style.display = 'block';
+                container.addEventListener('mousemove', function (m) {
+                    // 获取鼠标当前位置 距离li左侧距离算法是             鼠标距离屏幕左侧的距离 - li距离屏幕左侧的距离
+                    let x = m.pageX - container.offsetLeft - c.offsetWidth / 2;
+                    // 距离顶部的计算方法也一样
+                    let y = m.pageY - container.offsetTop - c.offsetHeight / 2;
+                    // 开始绑定给c
+                    c.style.left = x + 'px';
+                    c.style.top = y + 'px';
+
+                    // 还存在一个问题 就是鼠标不是在c的中心，只需要x-c的宽除2即可
+                })
+            })
+
+            // 鼠标离开li隐藏c
+            container.addEventListener('mouseout', () => {
+                let c = container.querySelector('.c');
+                c.style.display = 'none';
+            })
+
+        })
+    </script>
+
+</body>
+
+</html>

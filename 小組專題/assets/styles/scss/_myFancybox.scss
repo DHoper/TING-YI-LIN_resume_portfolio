@@ -1,0 +1,45 @@
+.with-fancybox #app {
+    filter: blur(6px);
+}
+
+.fancybox__container {
+    width: 100vw;
+    height: 100vh;
+    .fancybox__backdrop {
+        background-color: transparent;
+        background-color: rgba(0, 0, 0, 0.85);
+    }
+
+    .fancybox__carousel {
+        .fancybox__slide {
+            padding: 0;
+
+            .fancybox__content {
+                background-color: transparent;
+                color: #FFF;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+                &>.carousel__button.is-close {
+                    position: fixed;
+                    right: 10px;
+                    top: 10px;
+                }
+                *:focus:not(.carousel__button.is-close){
+                    outline: 0;
+                }
+            }
+        }
+    }
+}
+
+.popup-content {
+    width: 100%;
+    .swiper {
+        width: 100%;
+        .swiper-slide {
+            width: 100%;
+        }
+    }
+}
