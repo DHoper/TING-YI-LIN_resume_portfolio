@@ -1,0 +1,65 @@
+<html><head><style></style></head>
+<body>
+    <div id="mymovingdiv">
+        <h1>Moving Div</h1>
+        <p>And some little text too</p>
+    </div>
+
+<script>
+function animatedMove(id, xStart, yStart, xEnd, yEnd, secs)
+{
+    // Remove any CSS rules inserted by a previous call to this method
+    let rulename = `AnimMove${id}`;
+    let ss = document.styleSheets; // all stylesheets
+    for (let i = 0; i < ss.length; ++i) { // for each stylesheet...
+        for (let j = ss[i].cssRules.length - 1; j > 0; j--) { // for each rule...
+            if (ss[i].cssRules[j].name === rulename) { // does the name match?
+                ss[i].deleteRule(j);
+            }
+        }
+    }
+
+    // Insert a CSS rule for this animation
+    document.styleSheets[0].insertRule(`@keyframes ${rulename} { 0% { left: ${xStart}px; top: ${yStart}px; } 100% { left: ${xEnd}px; top: ${yEnd}px } }`);
+
+    // Remove any CSS rules inserted by a previous call to this method
+    for (let i = 0; i < ss.length; ++i) { // for each stylesheet...
+        for (let j = ss[i].cssRules.length - 1; j > 0; j--) { // for each rule...
+            if (ss[i].cssRules[j].name === rulename) { // does the name match?
+                ss[i].deleteRule(j);
+            }
+        }
+    }
+
+    // Insert a CSS rule for this animation
+    document.styleSheets[0].insertRule(`@keyframes ${rulename} { 0% { left: ${xStart}px; top: ${yStart}px; } 100% { left: ${xEnd}px; top: ${yEnd}px } }`);
+
+    // assign the animation to our element
+    let el = document.getElementById(id);
+    el.style.position = 'absolute';
+    el.style.animation = `${rulename} ${secs}s`;
+
+    // Make the element stay where the animation ends
+    el.style.left = `${xEnd}px`;
+    el.style.top = `${yEnd}px`;
+
+    // Re-clone the element, to reset the animation
+    el.parentNode.replaceChild(el.cloneNode(true), el);
+}
+
+let x = 0;
+let y = 0;
+
+function randomMove()
+{
+    let newX = Math.floor(Math.random() * 800);
+    let newY = Math.floor(Math.random() * 600);
+    animatedMove('mymovingdiv', x, y, newX, newY, 1);
+    x = newX;
+    y = newY;
+}
+
+setInterval(randomMove, 1000);
+</script>
+</body>
+</html>

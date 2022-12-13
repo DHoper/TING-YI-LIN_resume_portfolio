@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .c {
+        margin: auto;
+        margin-top: 5vh;
+        position: relative;
+      }
+
+      .wi {
+        position: relative;
+        top: calc((100% - 700px) / 2);
+        left: calc((100% - 700px) / 2);
+        width: 700px;
+        height: 700px;
+        border-radius: 99em;
+        background: url(./c.jpg);
+        background-attachment: fixed;
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        overflow: hidden;
+      }
+
+      .w {
+        position: absolute;
+        /* top: calc((100% - 700px) / 2);
+        left: calc((100% - 700px) / 2); */
+        width: 100px;
+        height: 100px;
+        border-radius: 99em;
+        /* border-radius: 100% 0 0 100% / 50%; */
+        background: url(./c.jpg);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center center;
+        animation: wa 2s 0s forwards;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="c">
+      <div class="wi"></div>
+    </div>
+
+    <script>
+      let style = document.createElement("style");
+      style.type = "text/css";
+      document.getElementsByTagName("head")[0].appendChild(style);
+
+      let n = 1;
+      let z = 2;
+      let p = 0;
+
+      let x = null;
+      let y = null;
+      let xd = null;
+      let yd = null;
+      let xd2 = null;
+      let yd2 = null;
+      const rainbow = [
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "skyblue",
+        "blue",
+        "purple",
+      ];
+      let rn = 0;
+      let e_count = 5;
+
+      let key = `
+        @keyframes wa {
+            0% {
+                // ${xd}: ${x}%;
+                // ${yd}: ${y}%;
+                // width: 0;
+                // height: 0;
+                // border-radius: 50%; 
+                border: none;
+            }
+            100% {
+              top: calc((100% - 700px) / 2);
+              left: calc((100% - 700px) / 2);
+              width: 700px;
+              height: 700px;
+              // border-radius:50%;
+              border: none;
+            }
+        }
+        `;
+      style.innerHTML = key;
+
+      let wi = document.querySelector(".wi");
+      let wc = wi.childNodes;
+      wi.addEventListener("mousemove", (m) => {
+        x = (m.pageX - (window.innerWidth - 700) / 2 - 50) / 7;
+
+        y = (m.pageY - (window.innerHeight - 700) / 2 + 50) / 7;
+
+        // console.log(x, y);
+
+        if (x > 0 && x < 401) {
+          xd = "right";
+          xd2 = "left";
+        } else {
+          xd = "left";
+          xd2 = "right";
+        }
+
+        if (y > 0 && y < 401) {
+          yd = "top";
+          yd2 = "bottom";
+        } else {
+          yd = "bottom";
+          yd2 = "top";
+        }
+
+        // console.log(e_count);
+        if (e_count % 5 === 0) {
+          if (rn > 6) {
+            rn = 0;
+          }
+          console.log(rn);
+          let wn = document.createElement("div");
+          wn.innerHTML = `
+        <div class="w" style=" 
+        background-size: auto ${110 - p}%; 
+        z-index:${z};
+        // animation: wa 2s 0s ;
+        left: ${x}%;
+        top: ${y}%;
+        border: solid ${rainbow[rn]};
+        "></div>
+        `;
+          if (rn <= 6) {
+            rn++;
+          } else if (rn > 6) {
+            rn = 0;
+          }
+          if (m.movementX < 801 && m.movementY < 801) {
+            if (z > 700) {
+              wi.innerHTML = "";
+              z = 2;
+              p = 0;
+            } else {
+              z++;
+              if (p < 10) {
+                p += 2;
+              } else {
+                p -= 2;
+              }
+              wi.appendChild(wn);
+            }
+          }
+        }
+        e_count++;
+      });
+    </script>
+  </body>
+</html>

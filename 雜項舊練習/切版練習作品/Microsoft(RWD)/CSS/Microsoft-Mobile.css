@@ -1,0 +1,489 @@
+@charset "UTF-8";
+@media screen and (max-width: 1400px) {
+  .rightBlock span:not(.nav) {
+    display: none;
+  }
+
+  .whiteBlock .primaryArea .bannerF > ul li .textBlock h1 {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 1085px) {
+  .headerBlock {
+    margin: 0 2.5%;
+  }
+  .headerBlock .header .searchClick {
+    right: 12.5vw;
+  }
+  .headerBlock .header .cancel {
+    top: 1.4%;
+    left: 92vw;
+  }
+
+  .whiteBlock .primaryArea .bannerF {
+    margin: 0;
+  }
+  .whiteBlock .primaryArea .bannerF ul li:nth-child(1) .picture,
+.whiteBlock .primaryArea .bannerF ul li:nth-child(2) .picture {
+    height: 55vw;
+    background-size: 110% 100%;
+    background-position: 40% 40%;
+  }
+  .whiteBlock .primaryArea .productF {
+    margin: 0 5%;
+  }
+  .whiteBlock .primaryArea .productF ul {
+    flex-wrap: wrap;
+  }
+  .whiteBlock .primaryArea .productF ul li {
+    margin: 3% 2%;
+    width: 46%;
+  }
+  .whiteBlock .primaryArea .productF ul li:last-child {
+    margin: 3% 2%;
+  }
+  .whiteBlock .primaryArea .bannerB {
+    margin: 0;
+  }
+  .whiteBlock .primaryArea .bannerB ul li .picture {
+    height: 55vw;
+    background-size: 110% 100%;
+    background-position: 40% 40%;
+  }
+  .whiteBlock .primaryArea .productB {
+    margin: 0 5%;
+    padding-top: 50px;
+  }
+  .whiteBlock .primaryArea .productB::before {
+    content: "適用於商務";
+    font-size: 25px;
+    font-weight: 600;
+    position: static;
+    margin: 0 0 20px 20px;
+  }
+  .whiteBlock .primaryArea .productB ul {
+    flex-wrap: wrap;
+  }
+  .whiteBlock .primaryArea .productB ul li {
+    margin: 3% 2%;
+    width: 46%;
+  }
+  .whiteBlock .primaryArea .productB ul li:last-child {
+    margin: 3% 2%;
+  }
+  .whiteBlock .follow {
+    margin: 4.5% 5%;
+  }
+
+  .grayBlock .listBlock {
+    margin: 0 2.5%;
+    padding: 3% 0 1%;
+  }
+  .grayBlock .listBlock > ul {
+    flex-wrap: wrap;
+  }
+  .grayBlock .listBlock > ul > li {
+    width: 33.3333333333%;
+    margin-bottom: 30px;
+  }
+  .grayBlock .footer {
+    margin: 0 2.5%;
+  }
+}
+@media screen and (max-width: 910px) {
+  .headerBlock .header .searchClick {
+    top: 8px;
+    right: calc(100vw - 85%);
+    width: 35px;
+    height: 45px;
+  }
+  .headerBlock .header .searchClick .searchInput {
+    top: 0vh;
+    right: -3vw;
+  }
+  .headerBlock .header .searchClick .searchInput input {
+    width: 70vw;
+  }
+  .headerBlock .header .searchClick .searchInput::after {
+    content: "";
+    width: 100px;
+    background-image: url(../icon/search.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 1270px;
+    width: 18px;
+    height: 18px;
+    transform: rotate(90deg);
+  }
+  .headerBlock .header .cancel {
+    top: 1.5vh;
+    left: 89vw;
+  }
+  .headerBlock .header > nav > ul > li:nth-last-child(2), .headerBlock .header > nav > ul > li:nth-last-child(3) {
+    display: none;
+  }
+  .headerBlock .header > nav ul > li:last-child {
+    display: inline;
+  }
+}
+@media screen and (min-width: 860px) and (max-width: 870px) {
+  .headerBlock .header .searchClick {
+    right: 17vw;
+  }
+  .headerBlock .header .searchClick .searchInput {
+    top: 0.1vh;
+    left: -60vw;
+  }
+  .headerBlock .header .searchClick .searchInput input {
+    width: 65vw;
+  }
+  .headerBlock .header .searchClick .searchInput input::after {
+    content: "";
+    width: 100px;
+    background-image: url(../icon/search.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 1270px;
+    width: 18px;
+    height: 18px;
+    transform: rotate(90deg);
+  }
+  .headerBlock .header .cancel {
+    top: 1.8vh;
+    right: -30vw;
+  }
+  .headerBlock .header > nav > ul > li:nth-last-child(4) {
+    display: none;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 860px) {
+  .headerBlock .header {
+    position: relative;
+    height: 49px;
+  }
+  .headerBlock .header .logo {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  .headerBlock .header nav {
+    display: none;
+  }
+  .headerBlock .header .searchClick {
+    left: max(8.5vw, 60px);
+    height: 36px;
+  }
+  .headerBlock .header .searchClick:focus-within ~ .logo {
+    display: none;
+  }
+  .headerBlock .header .searchClick .searchInput {
+    right: unset;
+    left: -5.5vw;
+    top: -0.5vh;
+  }
+  .headerBlock .header .searchClick .searchInput input {
+    width: 87vw;
+    height: 4vh;
+  }
+  .headerBlock .header .cancel {
+    left: -3vw;
+    top: 0.2vh;
+    z-index: 2;
+    width: 5.5vh;
+    height: 5.5vh;
+    background-image: url(../icon/left-arrow.png);
+    background-repeat: no-repeat;
+    background-size: 17.5px 20px;
+    background-position: 47.5% 47.5%;
+    border: none;
+  }
+  .headerBlock .header .cancel span {
+    display: none;
+  }
+  .headerBlock .header .rightBlock {
+    float: none;
+    width: 100vw;
+  }
+  .headerBlock .header .rightBlock .menu {
+    display: block;
+  }
+  .headerBlock .header .rightBlock .menu > nav {
+    float: left;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button {
+    width: 48px;
+    height: 48px;
+    background-image: url(../icon/menu.png);
+    background-size: 20px 20px;
+    background-position: 47.5% 50%;
+    background-repeat: no-repeat;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button:focus {
+    background-image: url(../icon/cancel.png);
+    background-color: transparent;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button span {
+    display: none;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .Tcancel {
+    width: 48px;
+    height: 48px;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .anchor {
+    width: 48px;
+    height: 48px;
+    margin: 0 -7px;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .anchor > ul {
+    left: -5vw;
+    width: 99.5vw;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .anchor > ul .leftNav {
+    width: 100%;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .anchor > ul .leftNav ul li a {
+    font-size: unset;
+    width: unset;
+    height: unset;
+    text-align: unset;
+    display: block;
+    text-align: left;
+    font-size: 15px;
+    width: auto;
+    font-family: "Segoe UI", SegoeUI, "Microsoft JhengHei", 微軟正黑體, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 14px 24px 15px 15px;
+    height: auto;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .anchor > ul .leftNav ul li a:hover {
+    text-decoration: unset;
+    text-underline-offset: unset;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .anchor > ul .leftNav ul li a:focus {
+    outline: solid 0.1px #262626;
+    outline-style: dashed;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .anchor > ul > li:not(.leftNav) {
+    color: black;
+    width: 100%;
+    padding: 0;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .anchor > ul > li:not(.leftNav)::before {
+    content: "";
+    display: none;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .anchor > ul > li:not(.leftNav) > label {
+    width: auto;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .anchor > ul > li:not(.leftNav) > label span {
+    display: block;
+    font-weight: normal;
+    text-align: left;
+    font-size: 15px;
+    width: auto;
+    font-family: "Segoe UI", SegoeUI, "Microsoft JhengHei", 微軟正黑體, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 14px 24px 15px 15px;
+    height: auto;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .anchor > ul > li:not(.leftNav) > label span:focus-within {
+    outline: solid 0.1px #262626;
+    outline-style: dashed;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .anchor > ul > li:not(.leftNav) > label span::after {
+    content: "";
+    background-image: url(../icon/arrow-down.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: block;
+    width: 12px;
+    height: 12px;
+    position: relative;
+    top: 3px;
+    float: right;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .anchor > ul > li:not(.leftNav) input:checked ~ ul {
+    display: block;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .anchor > ul li:not(.leftNav) > ul {
+    padding: 1px 0 0 30px;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .anchor > ul li:not(.leftNav) > ul > li > a {
+    display: block;
+    padding: 14px 15px 15px 15px;
+    font-size: unset;
+    width: unset;
+    height: unset;
+    text-align: unset;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .anchor > ul li:not(.leftNav) > ul > li > a:hover {
+    text-decoration: unset;
+    text-underline-offset: unset;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .anchor > ul li:not(.leftNav) > ul > li > a:focus {
+    outline: solid 0.1px #262626;
+    outline-style: dashed;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .anchor > ul > li:nth-child(1) {
+    display: block;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .anchor > ul > li:not(.leftNav) ul {
+    display: none;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .anchor > ul > li:nth-child(8) {
+    color: black;
+    width: 100%;
+    background-color: #f2f2f2;
+    display: block;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .anchor > ul > li:nth-child(8) a {
+    font-size: unset;
+    width: unset;
+    height: unset;
+    text-align: unset;
+    display: block;
+    text-align: left;
+    font-size: 15px;
+    width: auto;
+    font-family: "Segoe UI", SegoeUI, "Microsoft JhengHei", 微軟正黑體, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 14px 24px 15px 15px;
+    margin: 0;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .anchor > ul > li:nth-child(8) a:hover {
+    text-decoration: unset;
+    text-underline-offset: unset;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .anchor > ul > li:nth-child(8) a:focus {
+    outline: solid 0.1px #262626;
+    outline-style: dashed;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button .anchor > ul > li:nth-child(8) a::after {
+    content: "";
+    display: none;
+  }
+  .headerBlock .header .rightBlock .menu > nav > button::after {
+    display: none;
+  }
+  .headerBlock .header .rightBlock .menu .search {
+    float: left;
+  }
+  .headerBlock .header .rightBlock .menu .search button::after {
+    left: -10px;
+    top: 4.5px;
+  }
+  .headerBlock .header .rightBlock .menu .shoppingCar {
+    float: left;
+    margin-left: 52.5vw;
+  }
+  .headerBlock .header .rightBlock .menu .shoppingCar::after {
+    left: -5px;
+    top: 2px;
+  }
+  .headerBlock .header .rightBlock .menu .login {
+    float: right;
+  }
+  .headerBlock .header .rightBlock .menu .login::after {
+    left: -5px;
+  }
+}
+@media screen and (max-width: 770px) {
+  .whiteBlock .primaryArea .bannerF ul li:nth-child(1) .picture,
+.whiteBlock .primaryArea .bannerF ul li:nth-child(2) .picture {
+    height: calc(6vh + 46vw);
+  }
+  .whiteBlock .primaryArea .bannerF ul li:nth-child(1) .textBlock,
+.whiteBlock .primaryArea .bannerF ul li:nth-child(2) .textBlock {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: static;
+    width: auto;
+    height: 320px;
+    background-color: rgba(230, 230, 230, 0.9019607843);
+  }
+  .whiteBlock .primaryArea .bannerF ul li:nth-child(1) .textBlock p,
+.whiteBlock .primaryArea .bannerF ul li:nth-child(2) .textBlock p {
+    margin: 2.5vw 5vw 5vw 5vw;
+  }
+  .whiteBlock .primaryArea .bannerFAfter {
+    margin: 0 5%;
+  }
+  .whiteBlock .primaryArea .bannerFAfter ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .whiteBlock .primaryArea .bannerFAfter ul li a {
+    margin: 15px;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 20px;
+  }
+  .whiteBlock .primaryArea .bannerFAfter ul li a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+  .whiteBlock .primaryArea .bannerFAfter ul li a span {
+    width: auto;
+  }
+  .whiteBlock .primaryArea .bannerB ul li:nth-child(1) .picture,
+.whiteBlock .primaryArea .bannerB ul li:nth-child(2) .picture {
+    height: calc(6vh + 46vw);
+  }
+  .whiteBlock .primaryArea .bannerB ul li:nth-child(1) .textBlock,
+.whiteBlock .primaryArea .bannerB ul li:nth-child(2) .textBlock {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: static;
+    width: auto;
+    height: 320px;
+    background-color: rgba(230, 230, 230, 0.9019607843);
+  }
+  .whiteBlock .primaryArea .bannerB ul li:nth-child(1) .textBlock p,
+.whiteBlock .primaryArea .bannerB ul li:nth-child(2) .textBlock p {
+    margin: 2.5vw 5vw 5vw 5vw;
+  }
+
+  .grayBlock .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .grayBlock .footer > span {
+    display: block;
+    margin: 0;
+    white-space: nowrap;
+  }
+  .grayBlock .footer div > span {
+    white-space: nowrap;
+    margin: 0 5px;
+  }
+}
+@media screen and (max-width: 530px) {
+  .whiteBlock .primaryArea .productF ul li,
+.whiteBlock .primaryArea .productB ul li {
+    width: 100%;
+  }
+
+  .grayBlock .listBlock ul li {
+    width: 100%;
+    margin-top: 5%;
+  }
+  .grayBlock .footer > div {
+    position: relative;
+  }
+  .grayBlock .footer > div::after {
+    margin-left: 10px;
+  }
+}/*# sourceMappingURL=Microsoft-Mobile.css.map */

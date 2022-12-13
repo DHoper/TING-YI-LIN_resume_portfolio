@@ -1,0 +1,347 @@
+/* div {
+    border: solid blue 0.5px;
+} */
+body {
+    margin: 0;
+}
+.block1 {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    background-image: url(./IMG/B3.jpg);
+    background-size: cover;
+    background-position: 20vh 0;
+    overflow: hidden;
+}
+.leftBox {
+    width: 400px;
+    height: 100vh;
+    background-color:#90c5bd;
+}
+.menu {
+    display: none;   
+}
+.imgBox {
+    position: relative;
+}
+.img {
+    width: 180px;
+    height: 180px;
+    position: absolute;
+    top: 80px;
+    left: 110px;
+    background-image: url(./IMG/b-cake.jpg);
+    background-size: cover;
+}
+.button {
+    width: 100px;
+    height: 40px;
+    position: relative;
+    top:320px;
+    left: 150px;
+    margin: 5px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #F1b1b0;
+    color: beige;
+} 
+.rightBox {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: calc(100vw - 400px);
+}
+.rightInsideBox {
+    width: 1000px;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+
+}
+.xBox,.yBox,.zBox {
+    width: calc(1000px / 3);
+    height: 600px;
+}
+.xBox {
+    background-image: url(./IMG/l-chair.jpg);
+    background-size: cover;
+    background-position: -20px 0;
+}
+.yBox {
+    background-image: url(./IMG/l-gameplayer.jpg);
+    background-size: cover;
+    background-position: -130px 50px;
+}
+.zBox {
+    background-image: url(./IMG/l-cup.jpg);
+    background-size: cover;
+    background-position: -80px 0;
+}
+/* !!!!!!!!!!!1280!!!!!!!!!!!!! */
+
+@media screen and (max-width: 1400px) {
+    .block1 {
+        display: flex;
+        flex-direction: row;
+        height: 100vh;
+        overflow: hidden;
+    }
+    .leftBox {
+        width: 400px;
+        height: 100vh;
+        background-color:#90c5bd;
+    }
+    .menu {
+        display: none;   
+    }
+    .imgBox {
+        position: relative;
+    }
+    .img {
+        width: 180px;
+        height: 180px;
+        position: absolute;
+        top: 80px;
+        left: 110px;
+    }
+    .button {
+        width: 100px;
+        height: 40px;
+        position: relative;
+        top:320px;
+        left: 150px;
+    } 
+    .rightBox {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       width: calc(100vw - 400px);
+    }
+    .rightInsideBox {
+        width: 800px;
+        height: 500px;
+        display: block;
+    }
+    .xBox {
+        width: 790px;
+        height: 250px;
+        margin: 5px;
+        float: left;
+        background-image: url(./IMG/w-watch.jpg);
+        background-position: 0px -68px;
+    }
+    .yBox {
+        width: 388px;
+        height: 250px;
+        margin: 5px;
+        float: left;
+        background-image: url(./IMG/w-watch.jpg);
+        background-position: -10px  -18px;
+    }
+    .zBox {
+        width: 388px;
+        height: 250px;
+        margin: 5px;
+        float: right;
+        background-image: url(./IMG/w-watch.jpg);
+        background-position: -10px  -20px;
+    }
+}
+
+/* !!!!!!!!!!!768!!!!!!!!!!!!! */
+
+@media screen and (max-width: 1150px) {
+    .block1 {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+    }
+    .leftBox {
+        width: 768px;
+        height: 100px;
+        background-color:#90c5bd;
+        display: block;
+    }
+    .menu {
+        display: none;   
+    }
+    .imgBox {
+        position: relative;
+    }
+    .img {
+        width: 65px;
+        height: 65px;
+        position: static;
+        margin: 5px 0 5px 10px;
+        float: left;
+    }
+    .button {
+        width: 100px;
+        height: 40px;
+        position: static;
+        float: left;
+        margin: 20px 18px 0 0;
+    } 
+    .buttonBlock div:nth-child(1) {
+        margin: 20px 18px 0 38%;
+    }
+    .rightBox {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       width: 768px;
+       height: 1024px;
+    }
+    .rightInsideBox {
+        width: 625px;
+        height: 820px;
+        display: block;
+    }
+    .xBox {
+        width: 615.5px;
+        height: 400px;
+        margin: 5px;
+        float: left;
+        background-image: url(./IMG/l-gameplayer.jpg);
+        background-size: cover;
+        background-position: 10px -50px;
+    }
+    .yBox {
+        width: 300px;
+        height: 400px;
+        margin: 5px;
+        float: left;
+        background-image: url(./IMG/l-chair.jpg);
+        background-size: cover;
+        background-position: 0px -10px;
+    }
+    .zBox {
+        width: 300px;
+        height: 400px;
+        margin: 5px;
+        float: right;
+        background-image: url(./IMG/l-cup.jpg);
+        background-size: cover;
+        background-position: -5px 0;
+    }
+}
+
+/* !!!!!!!!!!!moblie!!!!!!!!!!!! */
+
+@media screen and (max-width: 500px) {
+    .block1 {
+        display: flex;
+        flex-direction: column;
+        width: 375px;
+        height: 100vh;
+        overflow: hidden;
+        background-position: 0;
+    }
+    .leftBox {
+        width: 375px;
+        height: 100px;
+        background-color:#90c5bd;
+        display: flex;
+        justify-content: center;
+        border: none;
+    }
+    .menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 8px;
+        left: -105px;
+        width: 60px;
+        height: 60px;
+    }
+    label {
+        width: 50px;
+        height: 50px;
+        background-image: url(./IMG/Bmenu.png);
+        background-size: cover;
+    }
+    label:hover {
+        background-image: url(./IMG/Xmenu.png);
+    }
+    input {
+        display: none;
+    }
+    input:checked ~ .menuli {
+        /* max-height: 130px; */
+        overflow: visible;
+    }
+    ul {
+        max-height: 0;
+        overflow: hidden;
+        list-style: none;
+        transition: .5s;
+    }
+    li {
+        width: 90px;
+        height: 40px;
+        background-color: #F1b1b0;
+        border: solid #90c5bd;
+        position: relative;
+        top: 45px;
+        left: -60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #458b80;
+        margin: 0;
+    }
+    li:hover {
+        background-color: #f3e765;
+        color: #c98381;
+    }
+    .imgBox {
+        position: relative;
+        left: -30px;
+    }
+    .img {
+        width: 65px;
+        height: 65px;
+        position: static;
+        margin: 5px 0 5px 10px;
+        float: left;
+        border-radius: 99em;
+    }
+    .button {
+        display: none;
+    } 
+    .rightBox {
+       display: block;
+       /* width: 375px;
+       height: 667px; */
+    }
+    .rightInsideBox {
+        width: 375px;
+        height: 625px;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        justify-content: flex-start;
+    }
+    .xBox,.yBox,.zBox {
+        width: 375px;
+        height: calc((667 - 100px) / 3);
+        margin: 0;
+    }
+    .xBox {
+        background-image: url(./IMG/w-watch.jpg);
+        background-position: 0px;
+    }
+    .yBox {
+        background-image: url(./IMG/w-glasses.jpg);
+        background-position: 0;
+    }
+    .zBox {
+        background-image: url(./IMG/w-wine.jpg);
+        background-position: 0 -40px;
+    }
+}

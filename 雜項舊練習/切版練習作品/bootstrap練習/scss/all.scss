@@ -1,0 +1,16 @@
+@import "bootstrap/bootstrap.scss";
+
+
+.t_a {
+  text-align: center;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 3rem;
+  width: 5rem;
+}
+
+$spacers: (
+  11: $spacer*12,
+)

@@ -1,0 +1,57 @@
+<!DOCTYPE html> 
+<html> 
+  
+<head> 
+    <title>MouseEvent offsetX Property in HTML</title> 
+    <style> 
+        div { 
+            border:3px solid green; 
+            height:100px; 
+            width:500px; 
+        } 
+          
+        h1 { 
+            color:green; 
+        } 
+          
+        h2 { 
+            font-family:Impact; 
+        } 
+          
+        body { 
+            text-align:center; 
+        } 
+    </style> 
+</head> 
+  
+<body> 
+  
+    <h1>GeeksforGeeks</h1> 
+    <h2>MouseEvent offsetX Property</h2> 
+  
+    <p>Click inside the green box to get  
+      the x-coordinate relative to the top edge.</p> 
+  
+    <div onclick="coord(event)"></div> 
+  
+    <p>The x-coordinate, relative to  
+      the top edge of the DIV element is:  
+      <span id="test"></span></p> 
+  
+    <script> 
+        
+        function coord(event) { 
+            
+            var c = event.offsetX; 
+            document.getElementById( 
+              "test").innerHTML = c; 
+        };
+        function success() { 
+            console.log()
+        }
+        console.log(navigator.geolocation.getCurrentPosition(success, error) );
+    </script> 
+  
+</body> 
+  
+</html>

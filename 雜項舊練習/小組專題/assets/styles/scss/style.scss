@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap');
+
+$font-size: .83vw !default;
+
+@import 'reset';
+
+@import 'keyframes';
+@import 'common';
+@import 'numAnimation';
+@import 'myfullpage';
+@import 'myFancybox';
+@import 'page_in_animation';
+
+@import './pages/preload';
+@import './pages/header';
+@import './pages/banner';
+@import './pages/situation';
+@import './pages/virus_introduction';
+@import './pages/vaccine';
+
+@import './pages/map';
+
+@import './pages/timeline';
+@import './pages/symptom';
+
+@import './pages/post_pandemic';
+@import './pages/about_us'; 
+@import './pages/footer';    
+@import './pages/refer';
+
+#banner,
+#situation_world,
+#situation_taiwan,
+#situation_taiwan_chart,
+#virus_introduction,
+#map-area,
+#vaccineTop,
+#vaccineBottom {
+    // display: none !important;
+}
+               

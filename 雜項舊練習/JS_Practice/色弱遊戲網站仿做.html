@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font: 12px / 1.5 微软雅黑;
+            color: rgb(255, 255, 255);
+            background-color: rgb(240, 96, 96);
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .initialScreen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        h1,
+        h2 {
+            font-size: 30px;
+            margin-top: 50px;
+        }
+
+        h2 {
+            margin-top: 105px;
+            margin-bottom: 50px;
+        }
+
+        .initialScreen p {
+            height: 30px;
+            font-size: 16px;
+            color: #FFA1A1;
+            text-align: center;
+            margin: 0;
+        }
+
+        button {
+            cursor: pointer;
+            border-radius: 7px;
+            letter-spacing: 1px;
+            font-weight: 700;
+            position: relative;
+            box-shadow: rgb(218, 150, 34) 0px 5px;
+            font-size: 20px;
+            font-family: 微软雅黑;
+            height: 70px;
+            width: 220px;
+            line-height: 70px;
+            border-style: none;
+            background: rgb(252, 173, 38);
+            margin: 350px;
+            color: rgb(255, 255, 255);
+        }
+
+        .gameScreen {
+            align-items: center;
+            display: none;
+            flex-direction: row;
+            width: 100%;
+            height: 100%;
+        }
+
+        .sidebar {
+            width: 80px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .score {
+            background-color: #4b76d1;
+            ;
+            height: 50px;
+            border-radius: 7px;
+            margin: 5px 0 0 2px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-weight: 400;
+            font-family: "Helvetica Neue";
+        }
+
+        .timeCounter {
+            height: 50px;
+            border-radius: 7px;
+            margin-left: 2px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: #FD9090;
+            color: #FFCACA;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pause {
+            height: 50px;
+            box-shadow: rgb(218, 150, 34) 0px 5px;
+            background: rgb(252, 173, 38);
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            border-radius: 7px;
+            margin: 0 0 5px 2px;
+            font-size: 20px;
+            font-weight: bolder;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Helvetica Neue";
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
+            width: 26.5vw;
+            height: 26.5vw;
+            padding: 8px;
+            border-radius: 8px;
+            background-color: #ddd;
+            margin-left: 32.5%;
+        }
+
+        .box {
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .hint {
+            position: absolute;
+            right: -17vw;
+            top: -16vw;
+        }
+
+        .mask {
+            display: none;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background-color: #212222f1;
+        }
+
+        .mask div {
+            display: none;
+            background-color: #09b4ca;
+            box-shadow: #054c55 0px 5px;
+            font-size: 20px;
+            font-weight: bolder;
+            width: 700px;
+            height: 70px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 2px;
+            position: absolute;
+            top: 45.1%;
+            left: 21.5%;
+        }
+
+        .continue {
+            background-color: #09b4ca;
+            box-shadow: #054c55 0px 5px;
+            position: absolute;
+            top: 75px;
+            left: calc(22vw - 250px);
+        }
+
+        .restart {
+            background-color: #FF686B;
+            box-shadow: #572223 0px 5px;
+            position: absolute;
+            top: 75px;
+            right: calc(22vw - 250px);
+        }
+    </style>
+</head>
+
+<!-- /////////////HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH////////////////////-->
+
+<body>
+    <div class="body">
+        <div class="initialScreen">
+            <h1>免費色弱測試</h1>
+            <h2>The Color !</h2>
+            <p>找出所有色塊里顏色不同的一個</p>
+            <p>Click on the tile that has a different color</p>
+            <button>PLAY</button>
+        </div>
+        <div class="gameScreen">
+            <div class="sidebar">
+                <div class="score"></div>
+                <div class="timeCounter">60</div>
+                <div class="pause">pause</div>
+            </div>
+            <div class="container">
+            </div>
+            <button class="hint" onclick="hintOutline()">提示(3)</button>
+        </div>
+        <div class="mask">
+            <div>
+            </div>
+            <button class="continue">繼續</button>
+            <button class="restart">重新開始</button>
+        </div>
+    </div>
+
+    <!-- /////////////SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS////////////////////-->
+
+    <script>
+        let count = 0; //計算點擊次數(關數)//
+        let calF = 1; //計算當前關數該落在frequency的哪個位置//
+        let n = 2;
+        const frequency = [1, 1, 2, 3, 6, 8, 13];
+        let hslRemember = [];  //宣告此陣列紀錄曾出現的HSL色碼組合//
+        function getRandom(x) {     //取得一範圍1~X之整數//
+            return Math.floor(Math.random() * x) + 1;
+        };
+        function hintOutline() {  //先宣告提示用函式和變數t//
+        };
+        let t = 3;
+
+        let theEndBox = null;
+
+        function click() {
+            count++;
+            document.querySelector('.container').innerHTML = '';
+
+            //生成並判斷HSL是否重複過，若不曾重複，將本次點擊之HSL色碼加入紀錄器陣列，並交給後方代入//
+            let hsl = null;
+            let hslH = null;
+            let hslS = null;
+            let hslL = null;
+            do {
+                hslH = getRandom(360);
+                hslS = getRandom(100);
+                hslL = getRandom(100);
+                hsl = `${hslH}, ${hslS}%, ${hslL}%`;
+            } while (hslRemember.includes(hsl));
+            hslRemember += hsl;
+
+
+            for (i = 0; i < n * n; i++) {
+                document.querySelector('.container').innerHTML += `<div class="box" style = " width: calc( (26.5vw / ${n}) - (12px - ${n}px)); height: calc( (26.5vw / ${n}) - (12px - ${n}px)); 
+                margin:calc( (12px - ${n}px) / 2); background: hsl( ${hsl});"></div>`;
+            };
+
+            let box = document.getElementsByClassName('box');
+            let theBox = getRandom(n * n) - 1;        //隨機答案塊//
+            theEndBox = theBox;
+            console.log(theEndBox + 1);
+            let pORn = Math.random() < 0.5 ? -1 : 1; // 得到一個-1或+1，用做決定降低或增加明度//
+            let diffLightnessN = (function () {                //得到一範圍3~6之整數，用作設定隨機明度降低範圍//
+                return Math.floor(Math.random() * 6) + 4;
+            }());
+
+            box[theBox].style.background = `hsl( ${hslH}, ${hslS}%, ${hslL - diffLightnessN * pORn}%)`;
+            box[theBox].addEventListener('click', () => { click() });
+
+            if (n < 10) {
+                let frequencyN = 0;
+                cal: for (i = 0; i < calF; i++) {
+                    frequencyN += frequency[i];
+                    if (count == frequencyN) {
+                        n++;
+                        calF++;
+                        break cal;
+                    };
+                };
+            };
+
+            ////////////////關卡顯示/////////////////
+            document.querySelector('.score').innerHTML = `Level ${count}`
+
+            ////////////////提示/////////////////
+            const hint = document.querySelector('.hint');
+            let clickStatus = false;  ///使點過提示後，同一關不能再次點擊//
+            hintOutline = () => {
+                if (clickStatus == false) {
+                    if (t > -1) {
+                        t--;
+                    }
+                    if (t == -1) {
+                        return;
+                    };
+                    box[theBox].style.outline = ' rgba(219, 45, 38, 0.9) dashed 4px';
+                    hint.innerHTML = `提示(${t})`;
+                    clickStatus = true;
+                };
+            };
+        };
+
+        document.querySelector('button').addEventListener('click', () => {  //開始按鈕//
+            document.querySelector('.gameScreen ').style.display = 'flex';
+            document.querySelector('.initialScreen').style.display = 'none';
+            click();
+
+            ///////////////倒計時器////////////////
+            const timeCounter = document.querySelector('.timeCounter');
+            let oneMin = 60;
+            function counter() {
+                if (oneMin > 0) {
+                    oneMin--;
+                }
+                timeCounter.innerHTML = `${oneMin}`;
+                if (oneMin == 0) {
+                    clearInterval(counterStart);
+                    timeCounter.style.color = 'red';
+                    let boxEnd = document.getElementsByClassName('box');  ///
+                    boxEnd[theEndBox].style.outline = ' rgba(219, 45, 38, 0.9) dashed 4px';
+                    document.querySelector('.mask').style.display = 'flex';
+                    document.querySelector('.mask').style.background = '#263d3df';
+                    document.querySelector('.continue').style.display = 'none';
+                    document.querySelector('.mask div').style.display = 'flex';
+                    let endText = null;
+                    switch (true) {
+                        case (count <= 10):
+                            endText = `你擁有 李星(Level${count - 1}) 等級的視力，去換副眼睛吧。 `;
+                            break;
+                        case (10 < count && count <= 20): 
+                            endText = `你擁有 潛行中的雷柯薩(Level${count - 1}) 等級的視力，請先脫離潛行狀態。`;
+                            break;
+                        case (20 < count && count <= 30): 
+                            endText = `你擁有 魔法水晶箭(Level${count - 1}) 等級的視力，別再射空啦....`;
+                            break;
+                        default: 
+                            endText = `你擁有 阿巴瑟(Level${count - 1}) 等級的視力，恭喜您，成為新任"宇宙之眼"。`;
+                            break;
+                    };
+                    document.querySelector('.mask div').innerHTML = endText;
+                };
+            };
+            let counterStart = setInterval(counter, 1000);
+            document.querySelector('.pause').addEventListener('click', () => {  //暫停按鈕//
+                clearInterval(counterStart);
+                document.querySelector('.mask').style.display = 'flex';
+            });
+            document.querySelector('.continue').addEventListener('click', () => {
+                document.querySelector('.mask').style.display = 'none';
+                counterStart = setInterval(counter, 1000);
+            });
+            document.querySelector('.restart').addEventListener('click', () => {
+                window.location.reload();
+            })
+        });
+
+    </script>
+</body>
+
+</html>

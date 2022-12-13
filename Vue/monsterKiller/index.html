@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue Basics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/vue@next" defer></script>
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <h1>怪物獵人</h1>
+  </header>
+  <div id="game">
+    <section id="monster" class="container">
+      <h2>石膚巨魔</h2>
+      <div class="healthbar">
+        <div class="healthbar__value" :style="monsterHPStyle"></div>
+      </div>
+    </section>
+    <section id="player" class="container">
+      <h2>你</h2>
+      <div class="healthbar">
+        <div class="healthbar__value" :style="playerHPStyle"></div>
+      </div>
+    </section>
+    <section v-if="winner" class="container">
+      <h1>遊戲結束!!!</h1>
+      <h3 v-if='winner == "player"'>你贏了</h3>
+      <h3 v-else>你輸了</h3>
+      <button @click="restart">重新開始</button>
+    </section>
+    <section v-else id="controls">
+      <button @click="hack">劈砍</button>
+      <button @click="fireBall" :disabled="fireBallUseable">火球術{{fireBallCDNum}}</button>
+      <button @click="healing" :disabled="healingUseable">快速治療{{healingCDNum}}</button>
+      <button @click="flee">逃跑</button>
+    </section>
+    <section id="log" class="container">
+      <h2>對戰紀錄</h2>
+      <ul>
+        <li v-for="message in logMessages">
+          <span v-if='message.actorStyle == "player"' class="rounds">第{{message.round}}回合</span>
+          <span v-if="message.flee">你逃跑了</span>
+          <p v-else>
+            <span :class=`log--${message.actorStyle}`>{{message.actor}}</span>使出了 <span :class=`log--${message.typeStyle}`>{{message.type}}</span>
+            <br>
+            <span :class=`log--${message.typeStyle}`>{{message.type == "快速治療"? "治癒了": "造成了"}}{{message.actValue}}傷害</span>
+          </p>
+        </li>
+      </ul>
+    </section>
+  </div>
+</body>
+
+</html>

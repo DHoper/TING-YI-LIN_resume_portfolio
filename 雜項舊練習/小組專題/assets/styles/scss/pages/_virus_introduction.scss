@@ -1,0 +1,778 @@
+#fullpage #virus_introduction {
+    .full-page-inner {
+        justify-content: space-between;
+    }
+}
+
+#virus_introduction {
+    overflow: hidden !important;
+    width: 100vw;
+    height: 100vh;
+
+    .row1 {
+        pointer-events: auto;
+    }
+
+    .l_bg,
+    .r_bg,
+    .l_content,
+    .row2 {
+        pointer-events: none;
+    }
+
+    .s3l_active,
+    .s3r_active {
+
+        .l_content,
+        .row2 {
+            pointer-events: auto;
+        }
+    }
+
+    // 以上才有左右效果
+    .s3_left {
+        position: relative;
+        width: 50%;
+        height: 100%;
+        z-index: 1;
+
+        &:hover {
+            z-index: 2;
+        }
+
+        .l_content {
+            z-index: 1;
+            position: absolute;
+            top: 0;
+            width: 200%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+
+            .row1 {
+                width: 100%;
+
+                .h1 {
+                    font-size: 4rem;
+                    text-align: center;
+                    margin-bottom: 2rem;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .row2 {
+                .image {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    img {
+                        border-radius: 50%;
+                        max-width: 90%;
+                        margin: auto;
+                    }
+
+                    &>div {
+                        display: flex;
+                        justify-content: center;
+                        width: 50%;
+                    }
+                }
+
+                .text {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    opacity: 0;
+                    transition: all 1.4s ease-in-out;
+                    transition-delay: 0s;
+                    transform: translateX(100%);
+
+                    article {
+                        font-size: 1.875rem;
+                        line-height: 2.5rem;
+                    }
+                }
+            }
+        }
+
+        .l_bg {
+            position: relative;
+            top: 0;
+            width: 200%;
+            height: 100%;
+            clip-path: polygon(0 0, 60.1% 0, 40.1% 100%, 0% 100%);
+            background-color: #253a56;
+            transition: all 1.8s ease-in-out;
+            transition-delay: 0.2s;
+        }
+
+        // 打開的畫面
+        &.s3l_active {
+            z-index: 2;
+
+            .l_bg {
+                width: 500%;
+                transition-delay: 0s;
+            }
+
+            .l_content {
+                .text {
+                    margin-left: 0;
+                    transform: translateX(-15%);
+                    opacity: 1;
+                    transition-delay: 0.6s;
+                }
+            }
+        }
+    }
+
+    .s3_right {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        color: white;
+        z-index: 1;
+
+        .r_content {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            transition: all 1.5s ease;
+
+            #scene1 {
+                position: absolute;
+                left: 60%;
+                top: 15%;
+
+                img {
+                    animation: s3r2 34s infinite;
+                    transition: all 3s ease;
+                }
+            }
+
+            #scene2 {
+                position: absolute;
+                left: 17%;
+                top: 15%;
+
+                img {
+                    animation: s3r1 30s infinite;
+                    transition: all 3s ease;
+                }
+            }
+
+            #scene3 {
+                position: absolute;
+                left: 6%;
+                top: 70%;
+
+                img {
+                    animation: s3r2 28s infinite;
+                    transition: all 3s ease;
+                }
+            }
+
+            #scene4 {
+                position: absolute;
+                right: 40%;
+                top: 45%;
+
+                img {
+                    animation: s3r1 26s infinite;
+                    transition: all 3s ease;
+                }
+            }
+
+            #scene5 {
+                position: absolute;
+                right: 10%;
+                top: 80%;
+
+                img {
+                    animation: s3r2 20s infinite;
+                    transition: all 3s ease;
+                }
+            }
+
+            .h1 {
+                width: 100%;
+                text-align: center;
+                z-index: 2;
+                position: absolute;
+                display: block;
+                left: 50%;
+                bottom: 15%;
+                transform: translate(-50%);
+                font-size: 4rem;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .row2 {
+            .image {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &>div {
+                    display: flex;
+                    justify-content: center;
+                    width: 50%;
+
+                    img {
+                        border-radius: 50%;
+                        max-width: 90%;
+                        margin: auto;
+                    }
+                }
+            }
+
+            .text {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                opacity: 0;
+                transition: all 1.4s ease-in-out;
+                transition-delay: 0s;
+                transform: translateX(100%);
+
+                article {
+                    font-size: 1.875rem;
+                    line-height: 2.5rem;
+                }
+            }
+        }
+    }
+
+    .l_bg {
+        position: relative;
+        top: 0;
+        width: 200%;
+        height: 100%;
+        clip-path: polygon(0 0, 60.1% 0, 40.1% 100%, 0% 100%);
+        background-color: #253a56;
+        transition: all 1.8s ease-in-out;
+        transition-delay: 0.2s;
+    }
+
+    // 打開的畫面
+    &.s3l_active {
+        z-index: 2;
+
+        .l_bg {
+            width: 500%;
+            transition-delay: 0s;
+        }
+
+        .l_content {
+            .text {
+                margin-left: 0;
+                transform: translateX(-15%);
+                opacity: 1;
+                transition-delay: 0.6s;
+            }
+        }
+    }
+
+    .s3_right {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        color: white;
+        z-index: 1;
+
+        .r_content {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            transition: all 1.5s ease;
+
+            #scene1 {
+                position: absolute;
+                left: 45%;
+                top: 15%;
+
+                img {
+                    animation: s3r2 34s infinite;
+                    transition: all 3s ease;
+                }
+            }
+
+            #scene2 {
+                position: absolute;
+                left: 17%;
+                top: 15%;
+
+                img {
+                    animation: s3r1 30s infinite;
+                    transition: all 3s ease;
+                }
+            }
+
+            #scene3 {
+                position: absolute;
+                left: 6%;
+                top: 70%;
+
+                img {
+                    animation: s3r2 28s infinite;
+                    transition: all 3s ease;
+                }
+            }
+
+            #scene4 {
+                position: absolute;
+                right: 40%;
+                top: 45%;
+
+                img {
+                    animation: s3r1 26s infinite;
+                    transition: all 3s ease;
+                }
+            }
+
+            #scene5 {
+                position: absolute;
+                right: 10%;
+                top: 80%;
+
+                img {
+                    animation: s3r2 20s infinite;
+                    transition: all 3s ease;
+                }
+            }
+
+            .h1 {
+                width: 100%;
+                text-align: center;
+                z-index: 2;
+                position: absolute;
+                display: block;
+                left: 50%;
+                bottom: 15%;
+                transform: translate(-50%);
+                font-size: 4rem;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .r_bg {
+            position: absolute;
+            right: 0;
+            top: 0;
+            background-color: #0e0e0e;
+            width: 200%;
+            height: 100%;
+            clip-path: polygon(59.9% 0, 100% 0, 100% 100%, 39.9% 100%);
+            transition: all 2.5s ease;
+            transition-delay: 0.8s;
+        }
+
+        .s3r_outer {
+            z-index: 2;
+            position: absolute;
+            left: 0;
+            margin-top: 5%;
+            width: 180%;
+            transform: translate(-200%, 0);
+            transition: all 1.5s ease-in-out;
+            height: 60%;
+            display: flex;
+            align-items: center;
+
+            article {
+                font-size: 1.875rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                line-height: 3rem;
+            }
+
+            .p {
+                position: relative;
+                height: 100%;
+
+                .bg-wrapper {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    // padding-bottom: 56.25%;
+
+                    .swiper {
+                        height: 100%;
+
+                        .swiper-wrapper {
+                            height: 100%;
+
+                            &>div {
+                                height: 100%;
+
+                                .img {
+                                    // width: 100%;
+                                    height: 100%;
+                                    background-image: url(../images/virus_introduction/lifeCycle.png);
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                }
+                            }
+
+
+                            &>div:nth-child(3) .img {
+                                background-position: 0 70%;
+                            }
+
+                            &>div:nth-child(4) .img {
+                                background-position: 60% 90%;
+                            }
+
+                            &>div:nth-child(5) .img {
+                                background-position: 95% 30%;
+                            }
+                        }
+                    }
+
+
+
+                    .swiper-button-next,
+                    .swiper-button-prev {
+                        &::after {
+                            color: rgb(0, 0, 0);
+                            opacity: 0.8;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.s3r_active {
+            z-index: 2;
+
+            .r_content {
+                #scene1 {
+                    img {
+                        animation: s3lDisappear1 2s forwards !important;
+                        opacity: 0;
+                        transition: all 2s ease;
+                    }
+                }
+
+                #scene2 {
+                    img {
+                        animation: s3lDisappear2 2s forwards !important;
+                        opacity: 0;
+                        transition: all 2s ease;
+                    }
+                }
+
+                #scene3 {
+                    img {
+                        animation: s3lDisappear1 2s forwards !important;
+                        opacity: 0;
+                        transition: all 2s ease;
+                    }
+                }
+
+                #scene4 {
+                    img {
+                        animation: s3lDisappear2 2s forwards !important;
+                        opacity: 0;
+                        transition: all 2s ease;
+                    }
+                }
+
+                #scene5 {
+                    img {
+                        animation: s3lDisappear1 2s forwards !important;
+                        opacity: 0;
+                        transition: all 2s ease;
+                    }
+                }
+            }
+
+            .r_bg {
+                width: 500%;
+                margin-left: -300%;
+                transition: all 2s ease;
+            }
+
+            .s3r_outer {
+                left: 0;
+                top: 5%;
+                transform: translate(-50%, 0);
+                transition: all 2.8s ease-out;
+                transition-delay: 0.2s;
+            }
+        }
+    }
+
+    // @media (min-width: 1200px) and (max-width: 1459px) {
+    //     .s3_right {
+    //         .s3r_outer {
+    //             top: 15% !important;
+    //         }
+    //     }
+    // }
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+        .s3_left {
+
+            // 打開的畫面
+            &.s3l_active {
+                .l_content {
+
+                    .text {
+                        transform: translateX(0%);
+                    }
+                }
+            }
+        }
+
+        .s3_right {
+            .s3r_outer {
+
+                .p .bg-wrapper {
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        height: auto !important;
+
+        .s3_left {
+            width: 100%;
+            height: auto;
+            pointer-events: none;
+
+            .l_content {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding:30px 20px;
+
+                .row2 {
+                    .image {
+                        max-width: 70%;
+                        position: relative;
+
+                        img {
+                            max-width: 70%;
+                        }
+
+                        .inside {
+                            position: absolute;
+                            top: 0;
+                            display: none;
+                        }
+                    }
+
+                    .text {
+
+                        opacity: 1;
+                        transform: translateX(0);
+                        text-align: center;
+
+                        article {
+                            font-size: 1.5rem;
+                            line-height: 1.5;
+                        }
+                    }
+                }
+            }
+
+            .l_bg {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+            // 打開的畫面
+            &.s3l_active {
+                .l_content {
+
+                    .text {
+                        transform: translateX(0%);
+                    }
+                }
+            }
+        }
+
+        .s3_right {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+
+            .r_content {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                order: 1;
+                padding:30px 20px;
+
+                div[id] {
+                    opacity: 0.5;
+                }
+
+                #scene1 {
+                    top: 5%;
+                    left: 50%;
+                }
+
+                #scene2 {
+                    top: 7%;
+                    left: 0%;
+                }
+
+                #scene3 {
+                    left: 5%;
+                    top: 77%;
+                }
+
+                #scene5 {
+                    right: 0%;
+                }
+
+                .h1 {
+                    position: relative;
+                    left: 0;
+                    bottom: 0;
+                    text-align: center;
+                    transform: none;
+                }
+            }
+
+            .r_bg {
+                z-index: -1;
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+            .s3r_outer {
+                width: 100%;
+                transform: translate(0, 0);
+                position: relative;
+                order: 2;
+                margin-top: 25%;
+
+                .p {
+                    .bg-wrapper {
+                        position: relative;
+                        .bg {
+                            background-size: cover;
+                            background-attachment: inherit;
+                        }
+                    }
+                }
+
+                article {
+                    text-align: center;
+                    font-size: 1.5rem;
+                    line-height: 1.5;
+                    margin-bottom: 5%;
+                }
+            }
+
+            &.s3r_active {
+                .s3r_outer {
+                    transform: translate(0, 0);
+                }
+            }
+        }
+    }
+
+    @media (max-width: 767px) {
+        .full-page-inner {
+            flex-direction: column;
+        }
+
+        // [data-depth] {
+        //     transform: none !important;
+        // }
+    }
+
+
+}
+
+@keyframes s3r1 {
+    0% {}
+
+    50% {
+        animation-timing-function: steps(1000);
+        transform: translate(10%, -5%) rotate(-360deg);
+    }
+
+    100% {
+        transform: translate(0) rotate(0deg);
+    }
+}
+
+@keyframes s3r2 {
+    0% {
+        animation-timing-function: steps(2000);
+    }
+
+    50% {
+        animation-timing-function: steps(2000);
+        transform: translate(-5%, -10%) rotate(360deg);
+    }
+
+    100% {
+        animation-timing-function: steps(2000);
+        transform: translate(0) rotate(0deg);
+    }
+}
+
+@keyframes s3lDisappear1 {
+    0% {
+        animation-timing-function: steps(2000);
+    }
+
+    50% {
+        animation-timing-function: steps(2000);
+        transform: translate(-2.5%, -5%) rotate(180deg) scale(50%);
+    }
+
+    100% {
+        transform: translate(5%, -10%) rotate(360deg) scale(0);
+    }
+}
+
+@keyframes s3lDisappear2 {
+    0% {
+        animation-timing-function: steps(2000);
+    }
+
+    50% {
+        animation-timing-function: steps(2000);
+        transform: translate(5%, 2.5%) rotate(-180deg) scale(50%);
+    }
+
+    100% {
+        transform: translate(10%, 5%) rotate(-360deg) scale(0);
+    }
+}

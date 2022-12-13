@@ -1,0 +1,340 @@
+div,
+h2,
+p {
+    /* border: solid blue 0.5px; */
+}
+
+body {
+    margin: 0;
+    font-family: helvetica, arial, sans-serif, sans-serif;
+}
+
+#body {
+    background-image: url(./IMG/C13.png);
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: 100vw 140vh;
+    background-position: 0;
+    background-attachment: fixed;
+    z-index: -3;
+}
+
+#body>div:nth-child(1) {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#body>div:nth-child(1) h2 {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    font-size: 3vw;
+    line-height: 2;
+    background: linear-gradient(to bottom, #513f8d, #eb9abc);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* !!!!!!!Part1!!!!!!! */
+
+.imgBlock1 {
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    /* background-color:#17b890; */
+    /* background-image: url(./IMG/w-B2.jpg); */
+}
+
+.leftBlock {
+    /* margin-left: 15vw; */
+    height: 450vh;
+}
+
+.imgBlock1 .img11,
+.imgBlock1 .img12 {
+    position: sticky;
+    top: 5vh;
+    width: 35vw;
+    height: 91vh;
+    margin: 0;
+}
+
+.img11 {
+    background-image: url(./IMG/C2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 -10vh;
+}
+
+.img12 {
+    background-image: url(./IMG/耳機.jpg);
+    background-repeat: no-repeat;
+    background-size: 60vw 95vh;
+    background-position: -40vh 0;
+}
+
+.rightBlock {
+    /* margin-right: 15vw; */
+    height: 450vh;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.text12 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    padding: 3vh 5vw;
+    width: 25vw;
+    height: 85vh;
+    position: sticky;
+    top: 5vh;
+    overflow: scroll;
+    background-color: #f3e765;
+    color: #3359c4;
+}
+
+.text11 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    padding: 3vh 5vw;
+    width: 25vw;
+    height: 85vh;
+    position: sticky;
+    top: 5vh;
+    background-color: #3359c4;
+    color: #f3e765;
+    overflow: scroll;
+}
+
+.imgBlock1 p {
+    font-family: helvetica, arial, sans-serif, sans-serif;
+    font-size: 1.5vw;
+}
+
+.imgBlock1 span {
+    font-size: 3vw;
+    font-weight: 600;
+}
+
+.transparent1 {
+    background-color: transparent;
+    width: 35vw;
+    height: 200vh;
+}
+
+.transparent2 {
+    background-color: transparent;
+    width: 35vw;
+    height: 100vh;
+}
+
+.transparent3 {
+    background-color: transparent;
+    width: 35vw;
+    height: 140vh;
+}
+
+.transparent4 {
+    background-color: transparent;
+    width: 35vw;
+    height: 140vh;
+}
+
+.sTransparent {
+    position: sticky;
+    top: 0;
+    width: 35vw;
+    height: 20vh;
+}
+
+.bTransparent1 {
+    height: 30vh;
+}
+
+/* !!!!!!!Part1Bottom!!!!!!! */
+
+.bottomBlock {
+    width: 100vw;
+    background-image: url(./IMG/B5.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bTTBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* position: relative; */
+    /* background-color: #513f8d; */
+}
+
+.bTText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75vw;
+    height: 15vh;
+    background: linear-gradient(to right, #BEE2DB, #F2B0B0);
+    /* -webkit-background-clip: text;
+            color: transparent; */
+    color: #FF686B;
+    text-shadow: 0vw -0.1vw #606de0;
+    position: sticky;
+    top: 0;
+}
+
+.bTText p {
+    font-size: 4vh;
+    font-family: helvetica, arial, sans-serif;
+    font-weight: 400;
+    text-align: center;
+    position: relative;
+    top: -2vh;
+}
+
+.bTTextAfter {
+    height: 40vh;
+    /* border: solid red; */
+}
+
+.bTTextAfter:last-of-type {
+    height: 60vh;
+    /* border: solid red; */
+}
+
+.bBBox {
+    /* position: absolute;
+    top: -5vh; */
+    /* background-color: red; */
+    position: relative;
+}
+
+.bBImgBlock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #BEE2DB;
+}
+
+.bBImgBox {
+    width: 75vw;
+    /* border: solid yellow; */
+    position: absolute;
+    top: -330vh;
+}
+
+.bBImg {
+    background-image: url(./IMG/C7.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 -5vh;
+    background-color: #0075A2;
+    position: sticky;
+    top: 13vh;
+    width: 75vw;
+    height: 90vh;
+    background-attachment: fixed;
+    z-index: 1;
+}
+.transparentBImg {
+    height: 300vh;
+    /* border: #09b4ca solid; */
+}
+/* .transparentBB1 {
+    background-color: red;
+    height: 250vh;
+} */
+.bBImgBGBox {
+    width: 90vw;
+    height: 550vh;
+    /* position: sticky;
+    bottom: -70vh; */
+    /* background-color: darkgoldenrod; */
+}
+.bBImgBG {
+    position: sticky;
+    top: 12.5vh;
+    width: 90vw;
+    height: 85vh;
+    background-image: url(./IMG/C10.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 -20vh;
+}
+/* .transparentB {
+    height: 1000vh;
+    width: 80vw;
+    background-color: green;
+} */
+.imgBlock2 {
+    /* border: solid red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    top: 200vh;
+    width: 100vw;
+    height: 250vh;
+    /* border: white solid; */
+}
+
+.arm1 {
+    width: 21vw;
+    height: 81vh;
+    background-color: #09b4ca;
+    position: sticky;
+    top: 12.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2vh 2vw;
+    font-size: 2.5vh;
+    color: #ffc2da;
+}
+.arm2 {
+    width: 21vw;
+    height: 81vh;
+    background-color: #ffc2da;
+    position: sticky;
+    top: 12.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2vh 2vw;
+    font-size: 2.5vh;
+    color: #09b4ca;
+}
+.imgBlock3 {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #3359c4; */
+}
+.imgBlock3 h2 {
+    /* writing-mode: vertical-lr; */
+    /* text-orientation: upright; */
+    font-size: 3vw;
+    line-height: 2;
+    background: linear-gradient(to left, #513f8d, #f8e669);
+    -webkit-background-clip: text;
+    color: transparent;
+    transform: translate( 0, 40vh);
+}

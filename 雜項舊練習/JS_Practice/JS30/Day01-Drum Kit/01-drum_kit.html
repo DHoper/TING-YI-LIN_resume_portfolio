@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01-drum_kit</title>
+    <style>
+      .main {
+        width: 70vw;
+        height: 90vh;
+        margin: auto;
+        margin-top: 3vh;
+        border: dashed 4px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: black;
+      }
+
+      .keybox {
+        width: 100px;
+        height: 100px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 36px;
+        transition: all .08s ease;
+        border-radius: 10px;
+      }
+
+      .playing {
+        transform: scale(1.1);
+        border-color: solid 2px #0aead0;
+        box-shadow: 0 0  1.5rem .5rem #0aead0;
+      }
+    </style>
+    <link rel="shortcut icon" href="#" />
+  </head>
+  <body>
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <div class="main">
+      <div class="keybox"></div>
+      <div class="keybox"></div>
+      <div class="keybox"></div>
+      <div class="keybox"></div>
+      <div class="keybox"></div>
+      <div class="keybox"></div>
+      <div class="keybox"></div>
+      <div class="keybox"></div>
+      <div class="keybox"></div>
+    </div>
+
+    <audio data-key="1" src="./sounds/clap.wav"></audio>
+    <audio data-key="2" src="./sounds/hihat.wav"></audio>
+    <audio data-key="3" src="./sounds/kick.wav"></audio>
+    <audio data-key="4" src="./sounds/openhat.wav"></audio>
+    <audio data-key="5" src="./sounds/boom.wav"></audio>
+    <audio data-key="6" src="./sounds/ride.wav"></audio>
+    <audio data-key="7" src="./sounds/snare.wav"></audio>
+    <audio data-key="8" src="./sounds/tom.wav"></audio>
+    <audio data-key="9" src="./sounds/tink.wav"></audio>
+
+    <script>
+      let k1 = "A";
+      let k2 = "S";
+      let k3 = "D";
+      let k4 = "F";
+      let k5 = "G";
+      let k6 = "H";
+      let k7 = "J";
+      let k8 = "K";
+      let k9 = "L";
+      const keyArray = [k1, k2, k3, k4, k5, k6, k7, k8, k9];
+
+      let kDivArray = document.querySelectorAll(".keybox");
+      kDivArray.forEach(() => {
+        for (i = 0; i < kDivArray.length; i++) {
+          kDivArray[i].innerHTML = `${keyArray[i]}`;
+        }
+      });
+
+      function removeTransition(e) {
+        if (e.propertyName !== "transform") return;
+        e.target.classList.remove("playing");
+      };
+
+      function playSound(k) {
+        let kj = k.key.toUpperCase();
+        if (keyArray.includes(kj)) {
+          let ki = keyArray.indexOf(kj);
+          let rk = String.fromCharCode(65 + Math.ceil(Math.random() * 25));
+
+          (function set_rk() {
+            if (!keyArray.includes(rk)) {
+              keyArray[ki] = rk;
+              kDivArray[ki].innerHTML = `${keyArray[ki]}`;
+            } else {
+              rk = String.fromCharCode(65 + Math.ceil(Math.random() * 25));
+              set_rk();
+            }
+          })();
+
+          let audio = document.querySelector(`audio[data-key="${ki + 1}"]`);
+          //   console.log(audio);
+          kDivArray[ki].classList.add("playing");
+          audio.currentTime = 0;
+          audio.play();
+        }
+      };
+      kDivArray.forEach((e) => e.addEventListener('transitionend', removeTransition));
+      window.addEventListener("keydown", playSound);
+    </script>
+  </body>
+</html>

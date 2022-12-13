@@ -1,0 +1,460 @@
+* {
+  box-sizing: border-box;
+}
+
+.screen::-webkit-scrollbar {   
+  display: none;
+}
+
+body {
+  background-color: #CCFFFF;
+  overflow-y: hidden;
+}
+
+
+.screen {
+  display: flex;
+  flex-direction: row;
+  overflow-y: hidden;
+  width: 100vw;
+  height: 100vh;
+
+  .title {
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20%;
+    height: 15%;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 39.8%;
+    background-color:  rgb(58, 103, 228);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-weight: 600;
+    box-shadow: rgb(37, 71, 164) 7px 7px;
+
+    span {
+      font-size: 45px;
+      margin-top: 20px;
+    }
+
+    p {
+      font-size: 22px;
+      margin-top: 10px;
+      margin-left: 60px;
+    }
+  }
+
+      .decoratreLine {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border: solid rgb(58, 103, 228);
+      border-width: 10px 25px 10px 25px;
+      z-index: -1;
+    }
+
+
+  .faceBlock {
+    width: 100%;
+    height: 100vh;
+    font-family: 'cwTeXYen';
+    padding: 5%;
+    transform-style: preserve-3d;
+    flex-shrink: 0;
+    position: relative;
+
+    .faceTouchPanel {
+      //用作感應mouseMove事件的介面(否則會被原先元素塊內的文字元素影響X、Y座標)//
+      position: absolute;
+      width: 75vw;
+      height: 70vh;
+      margin: auto;
+      top: 18vh;
+      left: 11.5vw;
+      // background-color: rgba(255, 0, 0, 0.671);
+    }
+
+    @mixin face {
+      width: 75vw;
+      height: 70vh;
+      margin: auto;
+      margin-top: 8vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      cursor: pointer;
+      transform-style: preserve-3d;
+    }
+
+    .face {
+      @include face;
+
+      .faceFront {
+        transform: translate3d(7px, 0px, -80px);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        top: 0;
+        border-radius: 7px;
+        border : 15px rgb(58, 103, 228) dashed;
+
+        .blankBox {
+          padding: auto;
+          width: calc(100% / 3);
+          height: 50%;
+          overflow: hidden;
+
+          .blank {
+            width: 250px;
+            height: 250px;
+            margin: 0 100px;
+            background-color: transparent;
+            border-radius: 7px;
+            box-shadow: 0px 0px 0px 2000px rgb(58, 103, 228);
+            outline: rgba(71, 112, 226, 0.676) 6px solid;
+            outline-offset: 2px;
+            position: relative;
+            left: 250px;
+          }
+        }
+
+        .blankBox:nth-child(1) .blank {
+          left: 28px;
+          top: 29px;
+        }
+
+        .blankBox:nth-child(2) .blank {
+          left: 8px;
+          top: 29px;
+        }
+
+        .blankBox:nth-child(3) .blank {
+          left: -12px;
+          top: 29px;
+        }
+
+        .blankBox:nth-child(4) .blank {
+          left: 253px;
+          top: 44px;
+        }
+
+        .blankBox:nth-child(5) .blank {
+          left: -2px;
+          top: 44px
+        }
+
+        .blankBox:nth-child(4),
+        .blankBox:nth-child(5) {
+          width: 50%;
+        }
+      }
+
+      .faceMiddle {
+        transform: translateZ(-140px);
+        width: 90%;
+        height: 90%;
+        position: absolute;
+        background-color: #CCFFFF;
+      }
+
+      .container {
+        width: 250px;
+        height: 250px;
+        margin: 0 100px;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        transform: translateZ(0px);
+
+        &:focus-within>.backBlock {
+          animation-duration: 1.2s;
+          animation-delay: 0.2s;
+          animation-timing-function: linear;
+          animation-fill-mode: forwards;
+          animation-name: backBlockMove;
+
+          @keyframes backBlockMove {
+
+            from {
+              transform: translateX(0px) rotateY(180deg);
+            }
+
+            25% {
+              transform: translate3d(175px, 0, 0px) rotateY(180deg);
+            }
+
+            50% {
+              transform: translate3d(250px, 0, 20px) rotateY(80deg);
+            }
+
+            65% {
+              transform: translate3d(200px, 0, 25px) rotateY(25deg);
+            }
+
+            80% {
+              transform: translate3d(120px, 0, 30px) rotateY(0deg);
+            }
+
+            to {
+              transform: translate3d(50px, 0, 40px) rotateY(0deg);
+              box-shadow: #686119 2px 2.5px 0.5px 1px;
+            }
+          }
+        }
+
+        &:focus-within>.middleBlock {
+          animation-duration: 0.6s;
+          animation-delay: 0.8s;
+          animation-timing-function: linear;
+          animation-fill-mode: forwards;
+          animation-name: middleBlockMove;
+
+          @keyframes middleBlockMove {
+
+            from {
+              // transform: rotateX(-180deg);
+              transform: translateZ(-30px);
+            }
+
+            25% {
+              // transform-origin: ( 100%, 100%);
+              transform: translate3d(100px, 0, -30px) rotateY(0deg);
+            }
+
+            50% {
+              // transform-origin: ( 100%, 100%);
+              transform: translate3d(370px, 0, -30px) rotateY(0deg);
+            }
+
+            65% {
+              transform: translate3d(325px, 0, 38px) rotateY(-140deg);
+            }
+
+            80% {
+              transform: translate3d(150px, 0, 40px) rotateY(-180deg);
+            }
+
+            to {
+              transform: translate3d(-80px, 0, 45px) rotateY(-180deg);
+              box-shadow: rgba(7, 20, 55, 0.551) -3px 4px 2px 2.5px;
+            }
+          }
+        }
+
+        &:focus-within>.frontBlock {
+
+          img {
+            transition: 0.1s;
+            transition-delay: 1s;
+            visibility: hidden;
+            // display:none
+          }
+        }
+
+        .touchPanel {
+          //用作感應mouseMove事件的介面(否則會被原先元素塊內的文字元素影響X、Y座標)//
+          transform: translateZ(50px);
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          border-radius: 7px;
+          // background-color: red;
+        }
+
+        .frontBlock {
+          // background-color: #3ecaf5;
+          background-color: rgb(100, 163, 234);
+          color: white;
+          text-shadow: rgb(25, 39, 109) 5px 5px;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          border-radius: 7px;
+          transform: translateZ(20px);
+          box-shadow: #14244f 2px 2.5px 0.5px 1px;
+          padding: 12px;
+          border: rgb(86, 146, 214) 8px solid;
+
+          h3 {
+            position: absolute;
+            font-size: 85px;
+            font-weight: 600;
+            top: 5px;
+            right: 0px;
+          }
+
+          &>div {
+            display: flex;
+            flex-direction: column;
+            margin: 35px 0 0 10px;
+
+
+            span {
+              font-size: 35px;
+              font-weight: 600;
+              margin-top: 0px;
+              text-shadow: rgb(25, 39, 109) 1px 4px;
+            }
+
+            span:last-child {
+              font-size: 25px;
+              margin-top: 10px;
+              margin-left: 5px;
+
+            }
+          }
+
+          p {
+            display: block;
+            font-size: 50px;
+            font-weight: 600;
+            margin: 30px 0px;
+          }
+
+          img {
+            position: absolute;
+            bottom: -100px;
+            left: 90px;
+            width: 280px;
+            height: 300px;
+            pointer-events: none;
+          }
+        }
+
+        .middleBlock {
+          background-color: #50b6cf;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          border-radius: 7px;
+          transform: translateZ(0px);
+          padding: 20px 55px;
+          border: 6px #FFFF99 dashed;
+          color: #FFFF99;
+          text-shadow: rgb(33, 33, 36) 1.5px 2px;
+
+
+          .mirror {
+            transform: rotateY(-180deg);
+            width: 100%;
+            height: 100%;
+
+            h3 {
+              text-align: center;
+              font-size: 25px;
+              font-weight: 600;
+              text-shadow: black 2px 2px;
+              text-decoration: underline;
+              text-underline-offset: 10px;
+              margin: 0 -55px;
+            }
+
+            &>div {
+              display: flex;
+              width: 100%;
+              height: 100%;
+
+
+              .sideTitle {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                height: 95%;
+                width: 55%;
+                font-size: 18px;
+                font-weight: 600;
+                text-shadow: black 2px 2px;
+                margin-top: 6px;
+              }
+
+              .content {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+                width: 45%;
+                height: 95%;
+                font-size: 30px;
+                font-weight: 500;
+                text-shadow: black 2.5px 2px;
+                margin-top: 5px;
+              }
+            }
+          }
+        }
+
+        .backBlock {
+          background-color: #FFFF99;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          border-radius: 7px;
+          transform: translateZ(-20px);
+          transform: rotateY(180deg);
+          text-shadow: #0b3b7a 2px 1.5px;
+          border: #42abc5 solid 7px;
+          padding: 25px 10px;
+          color: #50b6cf;
+
+          &>div {
+            float: right;
+            width: 50%;
+            height: 100%;
+
+            h3 {
+              text-align: center;
+              font-size: 25px;
+              font-weight: 600;
+              text-shadow: rgb(102, 94, 18) 2.5px 2.5px;
+              position: relative;
+              right: -6px;
+              text-decoration: underline;
+              text-underline-offset: 10px;
+            }
+
+            .content {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-around;
+              align-items: center;
+              width: 100%;
+              height: 95%;
+              font-size: 30px;
+              font-weight: 500;
+              text-shadow: rgb(92, 87, 18) 2px 2px;
+              margin-left: 5px;
+              margin-top: 5px;
+            }
+          }
+        }
+      }
+
+      .faceBack {
+        position: absolute;
+        width: 72vw;
+        height: 65vh;
+        margin: auto;
+        top: 4.5vh;
+        left: 3vw;
+        border-radius: 7px;
+        background-color: rgba(35, 91, 175, 0.55);
+        outline : 15px rgba(35, 91, 175, 0.55) dashed;
+        outline-offset: 0;
+        transform: translateZ(-150px);
+      }
+    }
+  }
+}
